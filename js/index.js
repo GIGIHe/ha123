@@ -1,4 +1,5 @@
 $(function(){
+    var sct;
     $(".mfol li").click(function(){
         $(this).addClass('hover').siblings('li').removeClass('hover');
         $(".mfexa_type").eq($(this).index()).stop().slideDown(600).siblings(".mfexa_type").hide();
@@ -19,17 +20,17 @@ $(function(){
         }
     })
 
-    $(".data_con li").each(function(index){
-        $(this).click(function(){
-            $(this).addClass('on').siblings('li').removeClass('on');
+        $(".data_con li").each(function(index){
+            $(this).click(function(){
+                $(this).addClass('on').siblings('li').removeClass('on');
+            })
         })
-    })
-    $(".navs li").each(function(index){
-        $(this).click(function(){
-            $(this).addClass('active').siblings('.navs li').removeClass('active');
-             $(".data_con").hide().eq(index).fadeIn(200);
+        $(".navs li").each(function(index){
+            $(this).click(function(){
+                $(this).addClass('active').siblings('.navs li').removeClass('active');
+                $(".data_con").hide().eq(index).fadeIn(200);
+            })
         })
-    })
         $('.zg_mcCent').eq(8).show();
         var txt = $('.zg_mNav li').eq(8).text();
         $(".zg_mtopP b").text(txt);
@@ -59,20 +60,20 @@ $(function(){
             });
         });	
         //筛选
-        var sct;
+       
         $(".zg_mtopP a").click(function(){
              sct = $('html,body').scrollTop()
             $(".zg_cenav").stop().animate({right:0});
             $(".mask").show();
             $('html,body').scrollTop(sct);
         });
- //关闭弹窗
- $(".zgColse,.zgnavBox").click(function(){
-    $(".zg_cenav").stop().animate({right:'-100%'});
-    $(".mask").hide();
-    $('html,body').scrollTop(sct);
-});
-$(".zg_navC").click(function(e){
-    e.stopPropagation();
-})
+        //关闭弹窗
+        $(".zgColse,.zgnavBox").click(function(){
+            $(".zg_cenav").stop().animate({right:'-100%'});
+            $(".mask").hide();
+            $('html,body').scrollTop(sct);
+        });
+        $(".zg_navC").click(function(e){
+            e.stopPropagation();
+        })
 })
