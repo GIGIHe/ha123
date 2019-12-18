@@ -38,6 +38,7 @@ $(function(){
         // console.log(idd);	//课程方向选择
         $(".zg_mNav li").each(function(){
             var indx = $(this).attr('data-size');
+              var stp= $(".con2_con").offset().top
             if(idd==indx){
                 var txt = $(this).text();
                 $(".zg_mtopP b").text(txt);
@@ -46,7 +47,7 @@ $(function(){
                 $(".zg_mcCent").hide();
                 $(".zg_mcCent:eq("+indx+")").stop(true,true).fadeIn();
             }
-            $(this).click(function(){			
+            $(this).click(function(){		
                 var txt = $(this).text();
                 $(".zg_mtopP b").text(txt);
                 $(".zg_mNav li").removeClass('on');
@@ -55,8 +56,9 @@ $(function(){
                 $('.zg_mcCent').eq(indx).show();
                 $(".zg_cenav").stop().animate({right:'-100%'});
                 $(".mask").hide();
-                $('html,body').scrollTop(sct);
-                console.log(sct);
+                $('html,body').scrollTop(stp);
+                console.log(stp)
+                
             });
         });	
         //筛选
